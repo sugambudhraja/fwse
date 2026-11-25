@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fwse"
+description = "Filter and Wrapper Stacking Ensemble: stable feature selection for high-dimensional omics data"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Sugam Budhraja" }]
+dependencies = ["numpy", "scipy", "scikit-learn>=1.0"]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Paper = "https://doi.org/10.1093/bib/bbad382"
+Repository = "https://github.com/sugambudhraja/fwse"
+
+[tool.setuptools]
+py-modules = ["fwse"]
+
+[tool.setuptools.dynamic]
+version = { attr = "fwse.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
